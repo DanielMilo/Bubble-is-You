@@ -63,7 +63,10 @@ public class Actor : MonoBehaviour
 
         foreach (ModifierData modifier in Modifiers)
         {
-            UpdateWithModifier(modifier);
+            if (modifier.Complete)
+            {
+                UpdateWithModifier(modifier);
+            }
         }
 
         Rigidbody.gravityScale = floats ? 0 : 1;
@@ -244,7 +247,7 @@ public class Actor : MonoBehaviour
         BarkBubble.StartFadeIn(this, 0.3f);
 
         // wait
-        yield return new WaitForSeconds(1.6f);
+        yield return new WaitForSeconds(2.6f);
 
         // fade out
         BarkText.StartFadeOut(0.3f);

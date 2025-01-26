@@ -60,10 +60,43 @@ public class LevelManager : MonoBehaviour
                     break;
                 }
             case 5:
+            case 6:
                 {
+                    bool cabbageAlive = false;
+                    foreach (var item in Actor.actors)
+                    {
+                        if(item.Type == Noun.Cabbage)
+                        {
+                            cabbageAlive = true;
+                        }
+                    }
+
+                    if(cabbageAlive)
+                    {
+                        // win
+                        StartCoroutine(OnWin());
+                    }
                     break;
                 }
-            case 6:
+            case 7:
+                {
+                    bool onlyCabbage = true;
+                    foreach (var item in Actor.actors)
+                    {
+                        if (item.Type != Noun.Cabbage)
+                        {
+                            onlyCabbage = false;
+                        }
+                    }
+
+                    if (onlyCabbage)
+                    {
+                        // win
+                        StartCoroutine(OnWin());
+                    }
+                    break;
+                }
+            case 8:
                 {
                     break;
                 }

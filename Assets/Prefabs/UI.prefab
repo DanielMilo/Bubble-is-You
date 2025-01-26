@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Make the cat eat the fish
+  m_text: Feed Fish to the Cat
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fc8b5e48e0452d343b6a474e6c734404, type: 2}
   m_sharedMaterial: {fileID: 8012259888946198352, guid: fc8b5e48e0452d343b6a474e6c734404, type: 2}
@@ -547,7 +547,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 15, y: -15}
-  m_SizeDelta: {x: 262.4839, y: 35}
+  m_SizeDelta: {x: 404.6531, y: 35}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &3812917464113122018
 CanvasRenderer:
