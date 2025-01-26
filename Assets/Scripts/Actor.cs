@@ -67,6 +67,7 @@ public class Actor : MonoBehaviour
             actors = new List<Actor>();
         }
 
+        bool moved = false;
         if (ChaseTarget != Noun.None)
         {
             for (int i = 0; i < actors.Count; i++)
@@ -80,6 +81,8 @@ public class Actor : MonoBehaviour
                         float direction = distanceX / Mathf.Abs(distanceX);
                         transform.Translate(new Vector3(Speed * Time.deltaTime * direction, 0, 0));
                         SpriteRenderer.transform.Rotate(new Vector3(0, 0, RotationSpeed * Time.deltaTime * -direction));
+                        moved = true;
+                        break;
                     }
                 }
             }
@@ -98,9 +101,16 @@ public class Actor : MonoBehaviour
                         float direction = distanceX / Mathf.Abs(distanceX);
                         transform.Translate(new Vector3(Speed * Time.deltaTime * -direction, 0, 0));
                         SpriteRenderer.transform.Rotate(new Vector3(0, 0, RotationSpeed * Time.deltaTime * direction));
+                        moved = true;
+                        break;
                     }
                 }
             }
+        }
+
+        if(!moved)
+        {
+            SpriteRenderer.transform.rotation = SmoothDamp(SpriteRenderer.transform.rotation, Quaternion.identity, 0.5f);
         }
 
         for (int i = 0;i < actors.Count;i++)
@@ -119,6 +129,18 @@ public class Actor : MonoBehaviour
                 }
             }
         }
+    }
+
+    Quaternion SmoothDamp(Quaternion current, Quaternion target, float smoothTime)
+    {
+        // Ensure there is no division by zero
+        if (smoothTime < Mathf.Epsilon) smoothTime = Mathf.Epsilon;
+
+        // Calculate the step for this frame
+        float t = 1.0f - Mathf.Exp(-Time.deltaTime / smoothTime);
+
+        // Smoothly interpolate the rotation
+        return Quaternion.Slerp(current, target, t);
     }
 
     public void Modify(ModifierBubble modifier)
@@ -161,15 +183,15 @@ public class Actor : MonoBehaviour
         BarkText.text = text;
 
         // fade in
-        BarkText.FadeIn(0.2f);
-        BarkBubble.FadeIn(0.2f);
+        BarkText.StartFadeIn(0.3f);
+        BarkBubble.StartFadeIn(this, 0.3f);
 
         // wait
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.6f);
 
         // fade out
-        BarkText.FadeOut(0.2f);
-        BarkBubble.FadeOut(0.2f);
+        BarkText.StartFadeOut(0.3f);
+        BarkBubble.StartFadeOut(this, 0.3f);
 
         currentFade = null;
     }
@@ -217,7 +239,12 @@ public class Actor : MonoBehaviour
 
 public static class FadeExtensions
 {
-    public static IEnumerator FadeIn(this SpriteRenderer spriteRenderer, float duration)
+    public static void StartFadeIn(this SpriteRenderer spriteRenderer, MonoBehaviour monoBehaviour, float duration)
+    {
+        monoBehaviour.StartCoroutine(FadeInCoroutine(spriteRenderer, duration));
+    }
+
+    private static IEnumerator FadeInCoroutine(SpriteRenderer spriteRenderer, float duration)
     {
         float elapsedTime = 0f;
 
@@ -237,7 +264,12 @@ public static class FadeExtensions
         }
     }
 
-    public static IEnumerator FadeOut(this SpriteRenderer spriteRenderer, float duration)
+    public static void StartFadeOut(this SpriteRenderer spriteRenderer, MonoBehaviour monoBehaviour, float duration)
+    {
+        monoBehaviour.StartCoroutine(FadeOutCoroutine(spriteRenderer, duration));
+    }
+
+    private static IEnumerator FadeOutCoroutine(SpriteRenderer spriteRenderer, float duration)
     {
         float elapsedTime = 0f;
 
@@ -257,7 +289,12 @@ public static class FadeExtensions
         }
     }
 
-    public static IEnumerator FadeIn(this TextMeshPro textMeshPro, float duration)
+    public static void StartFadeIn(this TextMeshPro textMeshPro, float duration)
+    {
+        textMeshPro.StartCoroutine(FadeInCoroutine(textMeshPro, duration));
+    }
+
+    private static IEnumerator FadeInCoroutine(TextMeshPro textMeshPro, float duration)
     {
         float elapsedTime = 0f;
 
@@ -277,7 +314,12 @@ public static class FadeExtensions
         }
     }
 
-    public static IEnumerator FadeOut(this TextMeshPro textMeshPro, float duration)
+    public static void StartFadeOut(this TextMeshPro textMeshPro, float duration)
+    {
+        textMeshPro.StartCoroutine(FadeOutCoroutine(textMeshPro, duration));
+    }
+
+    private static IEnumerator FadeOutCoroutine(TextMeshPro textMeshPro, float duration)
     {
         float elapsedTime = 0f;
 
@@ -294,7 +336,40 @@ public static class FadeExtensions
             }
 
             yield return null;
+        }
+    }
+
+    public static void StartFadeInOutCycle(this SpriteRenderer spriteRenderer, MonoBehaviour monoBehaviour, float fadeDuration, float delayBetweenFades)
+    {
+        monoBehaviour.StartCoroutine(FadeInOutCycleCoroutine(spriteRenderer, fadeDuration, delayBetweenFades));
+    }
+
+    private static IEnumerator FadeInOutCycleCoroutine(SpriteRenderer spriteRenderer, float fadeDuration, float delayBetweenFades)
+    {
+        while (true)
+        {
+            yield return FadeInCoroutine(spriteRenderer, fadeDuration);
+            yield return new WaitForSeconds(delayBetweenFades);
+            yield return FadeOutCoroutine(spriteRenderer, fadeDuration);
+            yield return new WaitForSeconds(delayBetweenFades);
+        }
+    }
+
+    public static void StartFadeInOutCycle(this TextMeshPro textMeshPro, MonoBehaviour monoBehaviour, float fadeDuration, float delayBetweenFades)
+    {
+        monoBehaviour.StartCoroutine(FadeInOutCycleCoroutine(textMeshPro, fadeDuration, delayBetweenFades));
+    }
+
+    private static IEnumerator FadeInOutCycleCoroutine(TextMeshPro textMeshPro, float fadeDuration, float delayBetweenFades)
+    {
+        while (true)
+        {
+            yield return FadeInCoroutine(textMeshPro, fadeDuration);
+            yield return new WaitForSeconds(delayBetweenFades);
+            yield return FadeOutCoroutine(textMeshPro, fadeDuration);
+            yield return new WaitForSeconds(delayBetweenFades);
         }
     }
 }
+
 
