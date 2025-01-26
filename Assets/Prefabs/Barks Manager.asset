@@ -25,6 +25,33 @@ MonoBehaviour:
   - Noun: 1
     Target: 2
     bark: fishfishfishfishfishfishfishfishfishfish
+  - Noun: 3
+    Target: 3
+    bark: An absurd proposition. Surely you jest!
+  - Noun: 3
+    Target: 5
+    bark: Golly, I seem to have aquired a taste for blood.
+  - Noun: 3
+    Target: 4
+    bark: Ah, my old foe.
+  - Noun: 4
+    Target: 4
+    bark: You'd take me for a cannibal?!
+  - Noun: 4
+    Target: 3
+    bark: I'mma snarf up that vain old leafball.
+  - Noun: 4
+    Target: 5
+    bark: How the tables turn!
+  - Noun: 5
+    Target: 5
+    bark: i no eat me ;-;
+  - Noun: 5
+    Target: 3
+    bark: yukk it's green!... well ok i eat if you says so. :[
+  - Noun: 5
+    Target: 4
+    bark: tasty friend!!??! :D i want! i want!!!
   OnEatHappened:
   - Noun: 2
     Target: 2
@@ -38,6 +65,24 @@ MonoBehaviour:
   - Noun: 1
     Target: 2
     bark: mmmm fish.  ......when next fish?
+  - Noun: 3
+    Target: 4
+    bark: Good riddance, you marauding ovis!
+  - Noun: 3
+    Target: 5
+    bark: Perhaps this "carnivore diet" has something to it after all.
+  - Noun: 4
+    Target: 3
+    bark: No more of your ridiculous prattle.
+  - Noun: 4
+    Target: 5
+    bark: This time, the meat eats you!
+  - Noun: 5
+    Target: 4
+    bark: mmm thank you tasty friend, you were tasty :)
+  - Noun: 5
+    Target: 3
+    bark: mebbe green is not the worstest. red still better.
   OnChaseAssigned:
   - Noun: 2
     Target: 2
@@ -51,6 +96,33 @@ MonoBehaviour:
   - Noun: 1
     Target: 2
     bark: that fish. is my fish.
+  - Noun: 3
+    Target: 3
+    bark: Myself is here. Thus I have already been caught. QED.
+  - Noun: 3
+    Target: 4
+    bark: Oho, I will best that bovine!
+  - Noun: 3
+    Target: 5
+    bark: That nasty thing will never see me coming.
+  - Noun: 4
+    Target: 4
+    bark: No, I'm done following the flock.
+  - Noun: 4
+    Target: 3
+    bark: No plant can outpace my hoofbeats.
+  - Noun: 4
+    Target: 5
+    bark: Sheep, cowards? Hah! I'll show 'em.
+  - Noun: 5
+    Target: 5
+    bark: i can chase tail :) :) :) it always escape tho :(
+  - Noun: 5
+    Target: 4
+    bark: yesyes i will get my tasty friend!!
+  - Noun: 5
+    Target: 3
+    bark: cabbage is a bit like ball, i guess...
   OnChaseApproach:
   - Noun: 2
     Target: 1
@@ -58,6 +130,24 @@ MonoBehaviour:
   - Noun: 1
     Target: 2
     bark: fish belong. to me. i get fish.
+  - Noun: 3
+    Target: 4
+    bark: Tremble at my approach, insouciant yarnbag!
+  - Noun: 3
+    Target: 5
+    bark: I shall pursue you to earth's end, foul creature!
+  - Noun: 4
+    Target: 3
+    bark: Get over here, you leafy floozy!
+  - Noun: 4
+    Target: 5
+    bark: I shall prove my bravery!
+  - Noun: 5
+    Target: 3
+    bark: no bouncy, but still an ok ball
+  - Noun: 5
+    Target: 4
+    bark: tasty friend!! tasty friend!! be tasty to meeeee
   OnAvoidAssigned:
   - Noun: 2
     Target: 2
@@ -71,6 +161,24 @@ MonoBehaviour:
   - Noun: 1
     Target: 1
     bark: no one avoid cat. all pet cat. yes
+  - Noun: 3
+    Target: 3
+    bark: Myself is here. Thus I cannot avoid myself. QED.
+  - Noun: 3
+    Target: 5
+    bark: Is it perchance a sheep in disguise? Best be safe.
+  - Noun: 3
+    Target: 4
+    bark: Never shall those snapping teeth snatch me!
+  - Noun: 5
+    Target: 5
+    bark: no chase own tail even? ok :l
+  - Noun: 5
+    Target: 3
+    bark: of course i avoid. why would i want?? is green.
+  - Noun: 5
+    Target: 4
+    bark: no tasty friend for me :[
   OnAvoidHappened:
   - Noun: 2
     Target: 2
@@ -82,15 +190,46 @@ MonoBehaviour:
     Target: 2
     bark: bye bye fish :( :( :(
   - Noun: 1
-    Target: 1
-    bark: cannot avoid cat. must pet. i no make rules
+    Target: 2
+    bark: bye bye fish :( :( :(
+  - Noun: 3
+    Target: 4
+    bark: Not today, old chap, not today.
+  - Noun: 3
+    Target: 5
+    bark: I fear it's a sheep in wolf's clothing.
+  - Noun: 4
+    Target: 3
+    bark: So tasty -- so close -- so forbidden!
+  - Noun: 4
+    Target: 5
+    bark: Too slow, villain!
+  - Noun: 5
+    Target: 3
+    bark: bad green thing
+  - Noun: 5
+    Target: 4
+    bark: tasty friend is not for me to taste today. someday!!
   Idle:
   - noun: 2
     bark: " {\u2256\uFE3F\u2256 } ..."
   - noun: 1
     bark: i exist. therefore am owed food. therefore you give food.
+  - noun: 4
+    bark: Wish I had some cud to chew.
+  - noun: 3
+    bark: This wait is most dreadful, old chap.
+  - noun: 5
+    bark: A good boy who deserves treats, pets, and bloody flesh still hot from the
+      kill.
   FloatsAssigned:
   - noun: 2
     bark: "( \xB0o\xB0 ) "
   - noun: 1
     bark: am... balloon???
+  - noun: 3
+    bark: By Jove! I fly!
+  - noun: 4
+    bark: I AM BECOME A CLOUD
+  - noun: 5
+    bark: whoaaa i can chase birb better now :0
