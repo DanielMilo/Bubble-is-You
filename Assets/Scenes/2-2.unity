@@ -460,7 +460,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8198931439723216106, guid: 3a46940dd197a474fa4490b7c08b5a60, type: 3}
       propertyPath: CurrentLevel
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8198931439723216106, guid: 3a46940dd197a474fa4490b7c08b5a60, type: 3}
       propertyPath: textMeshProUGUI

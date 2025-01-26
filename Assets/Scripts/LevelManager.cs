@@ -71,7 +71,7 @@ public class LevelManager : MonoBehaviour
                         }
                     }
 
-                    if(cabbageAlive)
+                    if(!cabbageAlive)
                     {
                         // win
                         StartCoroutine(OnWin());

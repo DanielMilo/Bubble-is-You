@@ -400,7 +400,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.92, y: 6.79, z: -10}
+  m_LocalPosition: {x: -2.92, y: 6.27, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -652,7 +652,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8198931439723216106, guid: 3a46940dd197a474fa4490b7c08b5a60, type: 3}
       propertyPath: CurrentLevel
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8198931439723216106, guid: 3a46940dd197a474fa4490b7c08b5a60, type: 3}
       propertyPath: textMeshProUGUI
