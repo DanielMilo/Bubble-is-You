@@ -9,4 +9,12 @@ public class LevelManager : MonoBehaviour
     {
         SceneManager.LoadScene(level);
     }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.R)) 
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
 }
