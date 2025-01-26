@@ -15,10 +15,10 @@ MonoBehaviour:
   OnEatAssigned:
   - Noun: 2
     Target: 2
-    bark: "\u056E_\xD4"
+    bark: "~_\xD4"
   - Noun: 2
     Target: 1
-    bark: "(\u3063\xB4\u0F40`)\u3063"
+    bark: "(>\xB4v`)>"
   - Noun: 1
     Target: 1
     bark: cat eat fish. cat not eat cat.
@@ -58,7 +58,7 @@ MonoBehaviour:
     bark: " ><<(((\xBA<   ><<(((\xBA> "
   - Noun: 2
     Target: 1
-    bark: "><<(((\xBA<   (=\u02C3\u11BA\u02C2=)"
+    bark: "><<(((\xBA<   (=>-<=)"
   - Noun: 1
     Target: 1
     bark: no... not true. no eat cat.
@@ -86,10 +86,10 @@ MonoBehaviour:
   OnChaseAssigned:
   - Noun: 2
     Target: 2
-    bark: "\u2218 \u2218 \u2218 ( \xB0_\xB0 ) ?"
+    bark: ". . . ( \xB0_\xB0 ) ?"
   - Noun: 2
     Target: 1
-    bark: "(\uFF61\xAC_\xAC\uFF61)"
+    bark: "( .\xAC_\xAC.)"
   - Noun: 1
     Target: 1
     bark: cat chase fish. cat not chase cat. (unless cat does chase cat.)
@@ -126,7 +126,7 @@ MonoBehaviour:
   OnChaseApproach:
   - Noun: 2
     Target: 1
-    bark: "(\u3065\uFF61\xAC_\xAC\uFF61)\u3065"
+    bark: "= (> .\xAC_\xAC.)>"
   - Noun: 1
     Target: 2
     bark: fish belong. to me. i get fish.
@@ -151,10 +151,10 @@ MonoBehaviour:
   OnAvoidAssigned:
   - Noun: 2
     Target: 2
-    bark: "\u2218 \u2218 \u2218 ( -- _* ) ?"
+    bark: . . . ( -- _* ) ?
   - Noun: 2
     Target: 1
-    bark: "\u25D1.\u25D1 !!"
+    bark: 0.0 !!
   - Noun: 1
     Target: 2
     bark: i... no get fish?? :(
@@ -182,10 +182,10 @@ MonoBehaviour:
   OnAvoidHappened:
   - Noun: 2
     Target: 2
-    bark: "(   \u0361\xBA__    \u0361\xBA)?"
+    bark: "( \xBA_  \xBA)?"
   - Noun: 2
     Target: 1
-    bark: "(\xF3\uFE4F\xF2\uFF61)'' ==="
+    bark: "(\xF3_\xF2 ..)'' ==="
   - Noun: 1
     Target: 2
     bark: bye bye fish :( :( :(
@@ -212,7 +212,7 @@ MonoBehaviour:
     bark: tasty friend is not for me to taste today. someday!!
   Idle:
   - noun: 2
-    bark: " {\u2256\uFE3F\u2256 } ..."
+    bark: ' {-.- } ...'
   - noun: 1
     bark: i exist. therefore am owed food. therefore you give food.
   - noun: 4
@@ -224,7 +224,7 @@ MonoBehaviour:
       kill.
   FloatsAssigned:
   - noun: 2
-    bark: "( \xB0o\xB0 ) "
+    bark: "( \xB00\xB0 )"
   - noun: 1
     bark: am... balloon???
   - noun: 3
