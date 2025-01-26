@@ -76,7 +76,7 @@ public class Player : MonoBehaviour
                         {
                             if (pickedUpObject.ModifierData.Noun != Noun.None)
                             {
-                                pickedUpObject.CompleteBubble(bubble);
+                                bubble.CompleteBubble(pickedUpObject);
                             }
                             else
                             {

@@ -37,9 +37,10 @@ public class ModifierBubble : MonoBehaviour
 
     public void CompleteBubble(ModifierBubble other)
     {
-        other.ModifierData.Noun = ModifierData.Noun;
-        other.text.text = other.ModifierData.ToString();
-        Destroy(gameObject);
+        ModifierData.Noun = other.ModifierData.Noun;
+        text.text = ModifierData.ToString();
+        attachedTo.ModifyComplete(this);
+        Destroy(other.gameObject);
     }
 
     public void Attach(Actor AttachedTo)

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class Actor : MonoBehaviour
 {
@@ -149,6 +150,54 @@ public class Actor : MonoBehaviour
 
         modifier.transform.parent = transform;
         modifier.transform.localPosition = BubbleDelta * Modifiers.Count;
+        if (BarksManager.Instance != null)
+        {
+            if (modifier.ModifierData.Verb == Verb.Floats)
+            {
+                foreach (var item in BarksManager.Instance.FloatsAssigned)
+                {
+                    if (item.noun == type)
+                    {
+                        StartCoroutine(DisplayBarkWrapper(item.bark));
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    public void ModifyComplete(ModifierBubble modifier)
+    {
+        TargetedBark[] targetedBarks = null;
+
+        switch (modifier.ModifierData.Verb)
+        {
+            case Verb.Eats:
+                targetedBarks = BarksManager.Instance.OnEatAssigned;
+                break;
+            case Verb.Chases:
+                targetedBarks = BarksManager.Instance.OnChaseAssigned;
+                break;
+            case Verb.Avoids:
+                targetedBarks = BarksManager.Instance.OnAvoidAssigned;
+                break;
+            case Verb.None:
+                break;
+            default:
+                break;
+        }
+
+        if (targetedBarks != null)
+        {
+            foreach (var item in targetedBarks)
+            {
+                if (item.Noun == type && item.Target == modifier.ModifierData.Noun)
+                {
+                    StartCoroutine(DisplayBarkWrapper(item.bark));
+                    break;
+                }
+            }
+        }
     }
 
     private void OnEat(Noun eaten)
