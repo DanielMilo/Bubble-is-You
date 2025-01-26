@@ -33,7 +33,9 @@ public class Actor : MonoBehaviour
     public float EatDistance;
     public Vector3 BubbleDelta;
 
+    [Header("modifiers")]
     public List<ModifierData> Modifiers;
+    public ForcedBubble prefab;
 
     public List<Noun> Eats;
     bool floats = false;
@@ -44,6 +46,13 @@ public class Actor : MonoBehaviour
     private void Awake()
     {
         Eats = new List<Noun>();
+
+        for (int i = 0; i < Modifiers.Count; i++)
+        {
+            ForcedBubble bubble = Instantiate(prefab, transform);
+            bubble.transform.localPosition = BubbleDelta * (i+1);
+            bubble.Assign(Modifiers[i]);
+        }
     }
 
     private void Update()

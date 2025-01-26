@@ -232,6 +232,7 @@ MonoBehaviour:
   EatDistance: 0.6
   BubbleDelta: {x: 0, y: 1.5, z: 0}
   Modifiers: []
+  prefab: {fileID: 8646233528211250104, guid: 9ac3d7d129c2dc9429db696f82eb9759, type: 3}
   Eats: 
   ChaseTarget: 0
   AvoidTarget: 0
