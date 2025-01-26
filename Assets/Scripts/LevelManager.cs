@@ -55,7 +55,7 @@ public class LevelManager : MonoBehaviour
                     if(Actor.actors.Count == 1)
                     {
                         // win
-                        _ = OnWin();
+                        StartCoroutine(OnWin());
                     }
                     break;
                 }
@@ -71,13 +71,14 @@ public class LevelManager : MonoBehaviour
     }
 
     bool won = false;
-    private async Task OnWin()
+    private IEnumerator OnWin()
     {
         if (!won)
         {
             won = true;
             textMeshProUGUI.gameObject.SetActive(true);
-            await Task.Delay(2000);
+
+            yield return new WaitForSeconds(2);
 
             SceneManager.LoadScene(CurrentLevel + 1);
         }

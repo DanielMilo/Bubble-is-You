@@ -641,8 +641,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Click Bubbles to pop them
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fc8b5e48e0452d343b6a474e6c734404, type: 2}
+  m_sharedMaterial: {fileID: 8012259888946198352, guid: fc8b5e48e0452d343b6a474e6c734404, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
