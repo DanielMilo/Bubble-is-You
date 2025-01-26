@@ -12,14 +12,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30ffca3dcb9996347a0d5b3d2d9be006, type: 3}
   m_Name: Barks Manager
   m_EditorClassIdentifier: 
-  OnEatAssigned: []
-  OnEatHappened:
-  - Noun: 1
+  OnEatAssigned:
+  - noun: 2
     Target: 2
-    bark: nom
-  OnChaseAssigned: []
-  OnChaseApproach: []
+    bark: "\u056E_\xD4"
+  - noun: 2
+    Target: 1
+    bark: "(\u3063\xB4\u0F40`)\u3063"
+  - noun: 1
+    Target: 1
+    bark: cat eat fish. cat not eat cat.
+  - noun: 1
+    Target: 2
+    bark: fishfishfishfishfishfishfishfishfishfish
+  OnEatHappened:
+  - noun: 2
+    Target: 2
+    bark: " ><<(((\xBA<   ><<(((\xBA> "
+  - noun: 2
+    Target: 1
+    bark: "><<(((\xBA<   (=\u02C3\u11BA\u02C2=)"
+  - noun: 1
+    Target: 1
+    bark: no... not true. no eat cat.
+  - noun: 1
+    Target: 2
+    bark: mmmm fish.  ......when next fish?
+  OnChaseAssigned:
+  - noun: 2
+    Target: 2
+    bark: "\u2218 \u2218 \u2218 ( \xB0_\xB0 ) ?"
+  - noun: 2
+    Target: 1
+    bark: "(\uFF61\xAC_\xAC\uFF61)"
+  - noun: 1
+    Target: 1
+    bark: cat chase fish. cat not chase cat. (unless cat does chase cat.)
+  - noun: 1
+    Target: 2
+    bark: that fish. is my fish.
+  OnChaseApproach:
+  - noun: 2
+    Target: 1
+    bark: "(\u3065\uFF61\xAC_\xAC\uFF61)\u3065"
+  - noun: 1
+    Target: 2
+    bark: fish belong. to me. i get fish.
   OnAvoidAssigned: []
   OnAvoidHappened: []
-  Idle: []
-  FloatsAssigned: []
+  Idle:
+  - noun: 2
+    bark: " {\u2256\uFE3F\u2256 } ..."
+  - noun: 1
+    bark: i exist. therefore am owed food. therefore you give food.
+  FloatsAssigned:
+  - noun: 2
+    bark: "( \xB0o\xB0 ) "
+  - noun: 1
+    bark: am... balloon???
