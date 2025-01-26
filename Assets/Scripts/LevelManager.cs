@@ -98,6 +98,21 @@ public class LevelManager : MonoBehaviour
                 }
             case 8:
                 {
+                    bool allPassed = true;
+                    foreach (var item in Actor.actors)
+                    {
+                        if (item.transform.position.x < 3)
+                        {
+                            allPassed = false;
+                            break;
+                        }
+                    }
+
+                    if (allPassed)
+                    {
+                        // win
+                        StartCoroutine(OnWin());
+                    }
                     break;
                 }
         }

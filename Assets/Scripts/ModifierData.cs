@@ -8,8 +8,7 @@ public enum Verb
     Chases,
     Avoids,
     Floats = 20,
-    Heavy,
-    Speedy,
+    Patrols,
     None
 }
 
@@ -32,6 +31,6 @@ public class ModifierData : ScriptableObject
     public bool Complete => (int)Verb < 20 ? Noun != Noun.None : true;
     public override string ToString()
     {
-        return $"{(Verb == Verb.None ? string.Empty : Verb)}{((Noun != Noun.None && Verb != Verb.None) ? " " : string.Empty)}{(Noun == Noun.None ? string.Empty : Noun)}";
+        return $"{(Verb == Verb.None ? string.Empty : Verb.ToString())}{((Noun != Noun.None && Verb != Verb.None) ? " " : string.Empty)}{(Noun == Noun.None ? string.Empty : Noun)}";
     }
 }

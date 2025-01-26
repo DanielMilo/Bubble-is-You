@@ -26,6 +26,7 @@ public class Actor : MonoBehaviour
     public Rigidbody2D Rigidbody;
 
     [Header("Params")]
+    public bool AllowModification = true;
     public float Speed = 2;
     public float RotationSpeed = 45;
     public float AvoidDistance;
@@ -38,9 +39,14 @@ public class Actor : MonoBehaviour
 
     public List<Noun> Eats;
     bool floats = false;
-
+    bool patrols = false;
+    
     public Noun ChaseTarget;
     public Noun AvoidTarget;
+
+    [Header("Patrol)")]
+    public float raycastDistance = 1f; // Distance to check for obstacles
+    public LayerMask obstacleLayer; // LayerMask to filter what the raycast should detect
 
     private void Awake()
     {
@@ -52,12 +58,23 @@ public class Actor : MonoBehaviour
             bubble.transform.localPosition = BubbleDelta * (i+1);
             bubble.Assign(Modifiers[i]);
         }
+
+        foreach (ModifierData modifier in Modifiers)
+        {
+            if (modifier.Complete)
+            {
+                UpdateWithModifier(modifier);
+            }
+        }
+
+        Rigidbody.gravityScale = floats ? 0 : 1;
     }
 
     private void Update()
     {
         Eats.Clear();
         floats = false;
+        patrols = false;
         ChaseTarget = Noun.None;
         AvoidTarget = Noun.None;
 
@@ -289,7 +306,8 @@ public class Actor : MonoBehaviour
             case Verb.Floats:
                 floats = true;
                 break;
-            case Verb.Heavy:
+            case Verb.Patrols:
+                patrols = true;
                 break;
             default:
                 break;

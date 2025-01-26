@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b9ab306e100cdc448e954707f0357bf, type: 3}
-  m_Name: Wolf
+  m_Name: Avoids Cabbage
   m_EditorClassIdentifier: 
-  Verb: 22
-  Noun: 5
+  Verb: 2
+  Noun: 3
