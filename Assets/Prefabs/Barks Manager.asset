@@ -13,49 +13,49 @@ MonoBehaviour:
   m_Name: Barks Manager
   m_EditorClassIdentifier: 
   OnEatAssigned:
-  - noun: 2
+  - Noun: 0
     Target: 2
     bark: "\u056E_\xD4"
-  - noun: 2
+  - Noun: 0
     Target: 1
     bark: "(\u3063\xB4\u0F40`)\u3063"
-  - noun: 1
+  - Noun: 0
     Target: 1
     bark: cat eat fish. cat not eat cat.
-  - noun: 1
+  - Noun: 0
     Target: 2
     bark: fishfishfishfishfishfishfishfishfishfish
   OnEatHappened:
-  - noun: 2
+  - Noun: 0
     Target: 2
     bark: " ><<(((\xBA<   ><<(((\xBA> "
-  - noun: 2
+  - Noun: 0
     Target: 1
     bark: "><<(((\xBA<   (=\u02C3\u11BA\u02C2=)"
-  - noun: 1
+  - Noun: 0
     Target: 1
     bark: no... not true. no eat cat.
-  - noun: 1
+  - Noun: 1
     Target: 2
     bark: mmmm fish.  ......when next fish?
   OnChaseAssigned:
-  - noun: 2
+  - Noun: 0
     Target: 2
     bark: "\u2218 \u2218 \u2218 ( \xB0_\xB0 ) ?"
-  - noun: 2
+  - Noun: 0
     Target: 1
     bark: "(\uFF61\xAC_\xAC\uFF61)"
-  - noun: 1
+  - Noun: 0
     Target: 1
     bark: cat chase fish. cat not chase cat. (unless cat does chase cat.)
-  - noun: 1
+  - Noun: 0
     Target: 2
     bark: that fish. is my fish.
   OnChaseApproach:
-  - noun: 2
+  - Noun: 0
     Target: 1
     bark: "(\u3065\uFF61\xAC_\xAC\uFF61)\u3065"
-  - noun: 1
+  - Noun: 0
     Target: 2
     bark: fish belong. to me. i get fish.
   OnAvoidAssigned: []
