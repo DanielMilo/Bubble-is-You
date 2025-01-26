@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Actor : MonoBehaviour
@@ -16,6 +17,10 @@ public class Actor : MonoBehaviour
     public SpriteRenderer SpriteRenderer;
     public Sprite BaseSprite;
     public Sprite DeadSprite;
+
+    [Header("Barks")]
+    public SpriteRenderer BarkBubble;
+    public TextMeshPro BarkText;
 
     [Header("Physics")]
     public Rigidbody2D Rigidbody;
@@ -108,8 +113,8 @@ public class Actor : MonoBehaviour
                     float distance = (other.transform.position - this.transform.position).magnitude;
                     if(distance < EatDistance)
                     {
-                        Destroy(other.gameObject);
                         OnEat(other.type);
+                        Destroy(other.gameObject);
                     }
                 }
             }
@@ -124,10 +129,49 @@ public class Actor : MonoBehaviour
         modifier.transform.localPosition = BubbleDelta * Modifiers.Count;
     }
 
-    private void OnEat(Noun type)
+    private void OnEat(Noun eaten)
     {
         // barks
-        Debug.Log("NOM");
+        if(BarksManager.Instance != null)
+        {
+            foreach (var item in BarksManager.Instance.OnEatHappened)
+            {
+                if(item.Noun == type && item.Target == eaten)
+                {
+                    StartCoroutine(DisplayBarkWrapper(item.bark));
+                }
+            }
+        }
+    }
+
+    Coroutine currentFade = null;
+    private IEnumerator DisplayBarkWrapper(string text)
+    {
+        while (currentFade != null)
+        {
+            yield return null;
+        }
+
+        currentFade = StartCoroutine(DisplayBark(text));
+    }
+
+    private IEnumerator DisplayBark(string text)
+    {
+        // set data
+        BarkText.text = text;
+
+        // fade in
+        BarkText.FadeIn(0.2f);
+        BarkBubble.FadeIn(0.2f);
+
+        // wait
+        yield return new WaitForSeconds(0.5f);
+
+        // fade out
+        BarkText.FadeOut(0.2f);
+        BarkBubble.FadeOut(0.2f);
+
+        currentFade = null;
     }
 
     private void OnEnable()
@@ -170,3 +214,87 @@ public class Actor : MonoBehaviour
         }
     }
 }
+
+public static class FadeExtensions
+{
+    public static IEnumerator FadeIn(this SpriteRenderer spriteRenderer, float duration)
+    {
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            float alpha = Mathf.Clamp01(elapsedTime / duration);
+
+            if (spriteRenderer != null)
+            {
+                Color spriteColor = spriteRenderer.color;
+                spriteColor.a = alpha;
+                spriteRenderer.color = spriteColor;
+            }
+
+            yield return null;
+        }
+    }
+
+    public static IEnumerator FadeOut(this SpriteRenderer spriteRenderer, float duration)
+    {
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            float alpha = Mathf.Clamp01(1 - (elapsedTime / duration));
+
+            if (spriteRenderer != null)
+            {
+                Color spriteColor = spriteRenderer.color;
+                spriteColor.a = alpha;
+                spriteRenderer.color = spriteColor;
+            }
+
+            yield return null;
+        }
+    }
+
+    public static IEnumerator FadeIn(this TextMeshPro textMeshPro, float duration)
+    {
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            float alpha = Mathf.Clamp01(elapsedTime / duration);
+
+            if (textMeshPro != null)
+            {
+                Color textColor = textMeshPro.color;
+                textColor.a = alpha;
+                textMeshPro.color = textColor;
+            }
+
+            yield return null;
+        }
+    }
+
+    public static IEnumerator FadeOut(this TextMeshPro textMeshPro, float duration)
+    {
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            float alpha = Mathf.Clamp01(1 - (elapsedTime / duration));
+
+            if (textMeshPro != null)
+            {
+                Color textColor = textMeshPro.color;
+                textColor.a = alpha;
+                textMeshPro.color = textColor;
+            }
+
+            yield return null;
+        }
+    }
+}
+

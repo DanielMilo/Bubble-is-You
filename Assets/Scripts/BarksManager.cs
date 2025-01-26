@@ -30,7 +30,7 @@ public class BarksManager : ScriptableObject
 [Serializable]
 public struct TargetedBark
 {
-    public Noun noun;
+    public Noun Noun;
     public Noun Target;
     public string bark;
 }

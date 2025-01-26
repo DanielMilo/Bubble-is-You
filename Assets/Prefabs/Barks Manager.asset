@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: Barks Manager
   m_EditorClassIdentifier: 
   OnEatAssigned: []
-  OnEatHappened: []
+  OnEatHappened:
+  - Noun: 1
+    Target: 2
+    bark: nom
   OnChaseAssigned: []
   OnChaseApproach: []
   OnAvoidAssigned: []
